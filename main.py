@@ -9,10 +9,10 @@ def SOLVE_IMAGE() :
     warp,points1,points2,contour = GET_PERSPECTIVE(sudoku,image)
     cells = GET_CELLS(warp)
     unsolved = GET_DIGITS(cells)
-    solved = SOLVE_SUDOKU(unsolved)
+    solved = SOLVE(unsolved)
     draw = DRAW_SOLVED(solved,warp)
-    final = PUT_PERSPECTIVE(image,draw,points1,points2,contour)
-    SHOW(final)
+    image = PUT_PERSPECTIVE(image,draw,points1,points2,contour)
+    SHOW(image)
 
 # TO GET SOLVED SUDOKU IN REALTIME AUGMENTED REALITY
 def SOLVE_VIDEO() :
@@ -21,10 +21,9 @@ def SOLVE_VIDEO() :
         ret,frame = vid.read()
         sudoku,image = GET_SUDOKU(frame)
         warp,points1,points2,contour = GET_PERSPECTIVE(sudoku,image)
-        cv2.drawContours(frame,[contour],-1,(0,255,0),2)
         cells = GET_CELLS(warp)
         unsolved = GET_DIGITS(cells)
-        solved = SOLVE_SUDOKU(unsolved)
+        solved = SOLVE(unsolved)
         draw = DRAW_SOLVED(solved,warp)
         frame = PUT_PERSPECTIVE(image,draw,points1,points2,contour)   
         cv2.imshow("frame",frame)

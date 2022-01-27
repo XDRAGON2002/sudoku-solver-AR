@@ -2,7 +2,8 @@ import cv2
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from sudoku_solver import *
+# from sudoku_solver import *
+from sudoku_solver_bfs import *
 
 def CENTER(length,size) :
         
@@ -127,6 +128,9 @@ def GET_DIGITS(cells) :
 def DRAW_SOLVED(solved,image) :
 
     draw = image
+    if not solved:
+        draw = cv2.putText(draw,str("UNSOLVED"),(draw.shape[0] // 4,draw.shape[1] // 2),cv2.FONT_HERSHEY_SIMPLEX,0.8,(0,255,0),2)
+        return draw
     cellheight = draw.shape[0] // 9
     cellwidth = draw.shape[1] // 9
     for i in range(9) :
@@ -142,5 +146,5 @@ def PUT_PERSPECTIVE(image,draw,points1,points2,contour) :
     final = cv2.warpPerspective(draw,m,(width,height))
     img = cv2.fillPoly(image,[contour],(0,0,0))
     final = cv2.bitwise_or(final,img)
-    cv2.drawContours(final,[contour],-1,(0,255,0),2)
+    cv2.drawContours(final,[contour],-1,(0,255,0),2) # BORDER
     return final

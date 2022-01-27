@@ -1,3 +1,6 @@
 venv
-ocr_model.h5
-sudoku.jpeg
+__pycache__
+Digits
+.vscode
+*.h5
+*.jpeg
