@@ -4,7 +4,6 @@ from flask_socketio import SocketIO, emit
 import io
 import cv2
 import numpy as np
-import imutils
 import pybase64 as base64
 from PIL import Image
 from solver.ocr import *
@@ -34,12 +33,6 @@ def image(data_image):
     solved = SOLVE(unsolved)
     draw = DRAW_SOLVED(solved,warp)
     image = PUT_PERSPECTIVE(image,draw,points1,points2,contour)
-    # cv2.imshow("temp",image)
-    # time.sleep(2)
-
-    # Process the image frame
-    # image = imutils.resize(image, width=700)
-    # frame = cv2.flip(frame, 1)
     imgencode = cv2.imencode('.jpg', image)[1]
 
     # base64 encode

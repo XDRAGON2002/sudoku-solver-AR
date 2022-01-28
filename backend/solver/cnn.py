@@ -9,11 +9,7 @@ test_image = test_image.reshape(test_image.shape[0],28,28,1)
 train_image = train_image / 255
 test_image = test_image / 255
 
-cnn_model = keras.Sequential([
-    keras.layers.Flatten(input_shape = (28,28)),
-    keras.layers.Dense(128,activation = "relu"),
-    keras.layers.Dense(10,activation = "softmax")
-])
+
 cnn_model = keras.Sequential([
     keras.layers.Conv2D(32,(3,3),activation = "relu",input_shape = (28,28,1)),
     keras.layers.MaxPooling2D((2,2)),

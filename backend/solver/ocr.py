@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 from tensorflow import keras
-# from sudoku_solver import *
 from solver.sudoku_solver_bfs import *
 
 def CENTER(length,size) :
