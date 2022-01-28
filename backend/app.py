@@ -11,9 +11,9 @@ from solver.ocr import *
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['GET'])
 def index():
-    return "Hello"
+    return "Works"
 
 @socketio.on('image')
 def image(data_image):
