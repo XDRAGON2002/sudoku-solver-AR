@@ -3,5 +3,4 @@ __pycache__
 Digits
 frontend/node_modules
 .vscode
-*.h5
 *.jpeg
