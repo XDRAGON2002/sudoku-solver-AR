@@ -32,10 +32,10 @@ def SOLVE_VIDEO() :
     vid.release()
     cv2.destroyAllWindows()
 
-choice = int(input("1 - SOLVE IMAGE\n2 - SOLVE VIDEO\nENTER CHOICE - "))
-if choice == 1 :
-    SOLVE_IMAGE()
-elif choice == 2 :
-    SOLVE_VIDEO()
-else :
-    print("INVALID CHOICE")
+# choice = int(input("1 - SOLVE IMAGE\n2 - SOLVE VIDEO\nENTER CHOICE - "))
+# if choice == 1 :
+#     SOLVE_IMAGE()
+# elif choice == 2 :
+#     SOLVE_VIDEO()
+# else :
+#     print("INVALID CHOICE")

@@ -1,9 +1,8 @@
 import cv2
 import numpy as np
-import tensorflow as tf
 from tensorflow import keras
 # from sudoku_solver import *
-from sudoku_solver_bfs import *
+from solver.sudoku_solver_bfs import *
 
 def CENTER(length,size) :
         
@@ -102,7 +101,7 @@ def GET_CELLS(warp) :
 
 def GET_DIGITS(cells) :
 
-    cnn_model = keras.models.load_model("ocr_model.h5")
+    cnn_model = keras.models.load_model("solver/ocr_model.h5")
     unsolved = [[0 for i in range(9)] for j in range(9)]
     for i in range(9) :
         for j in range(9) :
