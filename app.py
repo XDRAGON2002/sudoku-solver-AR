@@ -1,3 +1,4 @@
+from re import T
 import time
 from flask import Flask
 from flask_socketio import SocketIO, emit
@@ -45,4 +46,4 @@ def image(data_image):
 
 
 if __name__ == "__main__":
-    socketio.run(app,host = "0.0.0.0",port = 5000)
+    socketio.run(app,debug = True)

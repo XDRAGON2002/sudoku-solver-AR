@@ -105,7 +105,7 @@ def GET_DIGITS(cells) :
     for i in range(9) :
         for j in range(9) :
             cell = cells[i][j]
-            cell = cv2.resize(cell,(28,28))
+            cell = cv2.resize(cell,(32,32))
             thresh = cv2.threshold(cell,128,255,cv2.THRESH_BINARY)[1]
             contours,hierarchy = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE) 
             for contour in contours :
@@ -115,11 +115,11 @@ def GET_DIGITS(cells) :
                 else :
                     digit = thresh[y:y + h,x:x + w]
                     digit = CENTER_SCALE(digit,120)
-                    digit = cv2.resize(digit,(28,28))
+                    digit = cv2.resize(digit,(32,32))
                     digit = digit.astype("float32")
-                    digit = digit.reshape(1,28,28,1)
+                    digit = digit.reshape(1,32,32,1)
                     digit /= 255
-                    prediction = cnn_model.predict(digit.reshape(1,28,28,1),batch_size = 1)
+                    prediction = cnn_model.predict(digit.reshape(1,32,32,1),batch_size = 1)
                     unsolved[i][j] = prediction.argmax()
     return unsolved
 
